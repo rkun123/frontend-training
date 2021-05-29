@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import ThreadCard from './ThreadCard'
 import 'process'
 
-export default function ThreadList() {
+export default function ThreadList({ setCurrentThread }: { setCurrentThread: (thread_key?: string) => void}) {
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE
 
   const [threads, setThreads] = useState<Thread[]>([])
@@ -22,7 +22,7 @@ export default function ThreadList() {
     <div className={style.container}>
       {
         threads.map((t) => (
-          <ThreadCard thread={t}/>
+          <ThreadCard thread={t} onSelect={setCurrentThread}/>
         ))
       }
     </div>

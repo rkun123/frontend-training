@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import { Post } from '../schema'
 import PostCard from './PostCard'
 import style from '../styles/PostList.module.css'
+import Twemoji from 'react-twemoji'
 
 type Props = {
-  threadKey: string
+  threadKey?: string
 }
 
 export default function PostList({ threadKey }: Props) {
@@ -13,13 +14,15 @@ export default function PostList({ threadKey }: Props) {
   const [posts, setPosts] = useState<Post[]>([])
 
   useEffect(async () => {
-    const res = await fetch(`${API_BASE}/api/v1/threads/${threadKey}/posts`, {
-      method: 'GET'
-    })
+    if(threadKey !== undefined) {
+      const res = await fetch(`${API_BASE}/api/v1/threads/${threadKey}/posts`, {
+        method: 'GET'
+      })
 
-    const p = await res.json() as Post[]
-    setPosts([...posts, ...p])
-  }, [setPosts])
+      const p = await res.json() as Post[]
+      setPosts(p)
+    }
+  }, [setPosts, threadKey])
 
   return (
     <div className={style.container}>
@@ -27,6 +30,13 @@ export default function PostList({ threadKey }: Props) {
         posts.map((p) => (
           <PostCard post={p} />
         ))
+      }
+      {
+        threadKey === undefined ? (
+          <div className={style.notThreadSelectedWarningContainer}>
+            <Twemoji>��</Twemoji>
+          </div>
+        ) : null
       }
     </div>
   )
