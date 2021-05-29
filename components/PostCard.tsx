@@ -3,7 +3,7 @@ import { Post } from '../schema'
 import style from '../styles/PostCard.module.css'
 import date from 'date-and-time'
 
-export default function ThreadCard({ post }: { post: Post }) {
+export default function PostCard({ post }: { post: Post }) {
 
   const [ timestamp, setTimestamp ] = useState('')
 

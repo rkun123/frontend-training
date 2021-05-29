@@ -7,8 +7,6 @@ import PostList from '../components/PostList'
 
 export default function Home() {
 
-  const [currentThreadKey, setCurrentThreadKey] = useState<string | undefined>(undefined)
-
   return (
     <div className={styles.container}>
       <Head>
@@ -19,8 +17,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.timelineContainer}>
-          <ThreadList setCurrentThread={setCurrentThreadKey}/>
-          <PostList threadKey={currentThreadKey}/>
+          <ThreadList />
+          <PostList />
         </div>
       </main>
 

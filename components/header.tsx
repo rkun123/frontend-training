@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div className={style.container}>
       <div className={style.title}>
-        Sample Frontend
+        ひろゆきも絶賛
         <Twemoji tag='span'>🤪</Twemoji>
       </div>
     </div>
