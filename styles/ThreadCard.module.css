@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  padding: 0 25px;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.title {
+  font-weight: bold;
+}
