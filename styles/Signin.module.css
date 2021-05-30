@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.label {
+  margin-right: .5em;
+}
+
+.formEntry {
+  display: flex;
+  flex-direction: row;
+}
+
+.formTextInput {
+  border: none;
+  background-color: #eee;
+  padding: 5px;
+  flex-grow: 2;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.formTextInput:focus {
+  outline: none;
+}

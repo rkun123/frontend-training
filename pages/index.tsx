@@ -1,11 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 import ThreadList from '../components/ThreadList'
+import { useRecoilState } from 'recoil'
 import PostList from '../components/PostList'
+import UserStore from '../recoil/atoms/user'
+
+import Signin from '../components/Signin'
 
 export default function Home() {
+
+  const [userState, setUserState] = useRecoilState(UserStore)
 
   return (
     <div className={styles.container}>
@@ -16,6 +21,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        {
+          !userState.token && (
+            <Signin />
+          )
+        }
         <div className={styles.timelineContainer}>
           <ThreadList />
           <PostList />
