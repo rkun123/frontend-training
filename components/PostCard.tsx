@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Post } from '../schema'
-import style from '../styles/PostCard.module.css'
 import date from 'date-and-time'
 
 export default function PostCard({ post }: { post: Post }) {
@@ -15,17 +14,18 @@ export default function PostCard({ post }: { post: Post }) {
 
   }, [post, setTimestamp])
   return (
-    <div className={style.container}>
-      <div className={style.leftBox}>
-        <div className={style.title}>
+    <div className="shadow rounded-lg container flex h-auto p-4 mb-4">
+      <div className="flex-shrink flex items-center">
+        <div className="text-lg font-bold mr-3">
           { post.author.name }
         </div>
-        <div className={style.content}>
+        <div className="flex-shrink">
           { post.content }
         </div>
       </div>
-      <div className={style.rightBox}>
-        <div className={style.timestamp}>
+      <div className="flex-grow"></div>
+      <div className="flex-shrink">
+        <div className="text-gray-500">
           { timestamp }
         </div>
       </div>

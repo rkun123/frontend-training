@@ -62,7 +62,7 @@ export default function PostList() {
   }
 
   return (
-    <div className={style.container}>
+    <div className="ml-4 flex-grow">
       {
         userState.token !== undefined && threadState.currentThreadKey !== undefined && (
           <PostEdit threadKey={threadState.currentThreadKey} reloadPosts={reloadPosts}/>

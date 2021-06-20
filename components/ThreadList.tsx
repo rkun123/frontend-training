@@ -1,4 +1,3 @@
-import style from '../styles/ThreadList.module.css'
 import { Thread } from '../schema'
 import React, { useEffect, useState } from 'react'
 import ThreadCard from './ThreadCard'
@@ -25,7 +24,7 @@ export default function ThreadList() {
   }, [setThreadState])
 
   return (
-    <div className={style.container}>
+    <div className="shadow rounded-lg p-5 flex flex-col divide-y">
       {
         threadState.threads.map((t) => (
           <ThreadCard thread={t} />

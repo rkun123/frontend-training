@@ -24,7 +24,7 @@ export default function ThreadCard({ thread }: { thread: Thread }) {
   }
 
   return (
-    <div className={clsx(style.container, isCurrentState && style.selected)} onClick={handleSelect}>
+    <div className={clsx("flex px-4 py-1 cursor-pointer", isCurrentState && style.selected)} onClick={handleSelect}>
       <div className={style.title}>
         { thread.name }
       </div>
