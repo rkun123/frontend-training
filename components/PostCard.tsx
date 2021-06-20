@@ -16,14 +16,18 @@ export default function PostCard({ post }: { post: Post }) {
   }, [post, setTimestamp])
   return (
     <div className={style.container}>
-      <div className={style.title}>
-        { post.author.name }
+      <div className={style.leftBox}>
+        <div className={style.title}>
+          { post.author.name }
+        </div>
+        <div className={style.content}>
+          { post.content }
+        </div>
       </div>
-      <div className={style.timestamp}>
-        { timestamp }
-      </div>
-      <div className={style.content}>
-        { post.content }
+      <div className={style.rightBox}>
+        <div className={style.timestamp}>
+          { timestamp }
+        </div>
       </div>
     </div>
   )

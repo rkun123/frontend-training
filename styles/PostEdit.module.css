@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding-left: 2rem;
   align-items: center;
   margin-bottom: 20px;
@@ -10,24 +9,23 @@
 
 .title {
   font-weight: bold;
-  margin-right: 1rem;
-}
-
-.leftBox {
-  display: flex;
-  flex-direction: row;
 }
 
 .timestamp {
   font-size: .7em;
   color: #888;
-}
-
-.content {
   margin-right: 1rem;
 }
 
-.rightBox {
-  display: flex;
-  flex-direction: row;
+.input {
+  border: none;
+  box-shadow: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.submitButton {
+  display: none;
 }

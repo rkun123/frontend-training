@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import UserStore from '../recoil/atoms/user'
 import style from '../styles/Signin.module.css'
@@ -17,6 +17,13 @@ function Signin() {
     password: string
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem('jwt')
+    if ( token !== null) {
+      setUserState({ ...userState, token })
+    }
+  })
+
   const handleSignin: SubmitHandler<SigninPayload> = (payload) => {
     (async () => {
       const res = await fetch(`${API_BASE}/api/v1/auth/signin`, {
@@ -27,6 +34,7 @@ function Signin() {
       if(res.status === 200) {
         const resBody = await res.json()
         const token = resBody.jwt
+        localStorage.setItem('jwt', token)
         setUserState({ ...userState, token })
       }
     })()
