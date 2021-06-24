@@ -6,7 +6,6 @@ import { useRecoilState } from 'recoil'
 import threadStore from '../recoil/atoms/thread'
 import postStore from '../recoil/atoms/post'
 import userStore from '../recoil/atoms/user'
-import Twemoji from 'react-twemoji'
 import PostEdit from '../components/PostEdit'
 import Spinner from '../components/Spinner'
 
@@ -33,8 +32,10 @@ export default function PostList() {
     }
   }
 
-  useEffect(async () => {
-    await loadPosts()
+  useEffect(() => {
+    (async () => {
+      await loadPosts()
+    })()
   }, [setPosts, threadState])
 
   const reloadPosts = useCallback(async () => {
@@ -52,7 +53,7 @@ export default function PostList() {
       {
         threadState.currentThreadKey === undefined ? (
           <div className={style.notThreadSelectedWarningContainer}>
-            <Twemoji>😇</Twemoji>
+            <div>😇</div>
             You need to select some thread.
           </div>
         ) : null
